@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import MyInput from "./input/MyInput";
-import Mybutton from "./button/mybutton";
+import MyButton from "./button/MyButton";
 
 const PostForm = ({create}) => {
     const [post, setPost]= useState({title: '', body: ''})
@@ -29,7 +29,7 @@ const PostForm = ({create}) => {
                 type="text"
                 placeholder="описание поста"
             />
-            <Mybutton onClick={addNewPost}>создать пост</Mybutton>
+            <MyButton onClick={addNewPost}>создать пост</MyButton>
         </form>
     );
 };

@@ -4,7 +4,7 @@ import ClassCounter from "./components/ClassComponent";
 import './styles/App.css'
 import PostItem from "./components/PostItem";
 import PostList from "./components/PostList";
-import Mybutton from "./components/UI/button/mybutton";
+import MyButton from "./components/UI/button/MyButton";
 import MyInput from "./components/UI/input/MyInput";
 import PostForm from "./components/UI/PostForm";
 
@@ -19,10 +19,14 @@ function App() {
         setPosts([...posts, newPost])
     }
 
+    const removePost = (post) => {
+        setPosts(posts.filter(p => p.id !==post.id))
+    }
+
     return (
         <div className="App">
             <PostForm create = {createPost}/>
-           <PostList posts={posts} title = "список постов "/>
+           <PostList remove={removePost} posts={posts} title = "список постов "/>
         </div>
     );
 }
