@@ -26,8 +26,8 @@ function App() {
             body
         }
         setPosts([...posts, newPost])
-
-
+        setTitle('')
+        setBody('')
     }
 
     return (
@@ -40,7 +40,6 @@ function App() {
                     placeholder="название поста"
                 />
 
-
                 <MyInput
                     value={body}
                     onChange={e=> setBody(e.target.value)}
@@ -50,9 +49,7 @@ function App() {
                 <Mybutton onClick={addNewPost}>создать пост</Mybutton>
             </form>
            <PostList posts={posts} title = "список постов "/>
-
         </div>
-
     );
 }
 
