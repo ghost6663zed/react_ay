@@ -6,6 +6,7 @@ import PostItem from "./components/PostItem";
 import PostList from "./components/PostList";
 import Mybutton from "./components/UI/button/mybutton";
 import MyInput from "./components/UI/input/MyInput";
+import PostForm from "./components/UI/PostForm";
 
 function App() {
     const [posts, setPosts] = useState( [
@@ -14,40 +15,13 @@ function App() {
         {id: 3, title: 'Javascript 3', body: 'Description'},
 
     ])
-
-    const [title, setTitle]= useState('')
-    const [body, setBody] = useState('')
-
-    const addNewPost =(e)=> {
-        e.preventDefault()
-        const newPost ={
-            id: Date.now(),
-            title,
-            body
-        }
+    const createPost = (newPost) => {
         setPosts([...posts, newPost])
-        setTitle('')
-        setBody('')
     }
 
     return (
         <div className="App">
-            <form>
-                <MyInput
-                    type="text"
-                    value={title}
-                    onChange={e=> setTitle(e.target.value)}
-                    placeholder="название поста"
-                />
-
-                <MyInput
-                    value={body}
-                    onChange={e=> setBody(e.target.value)}
-                    type="text"
-                    placeholder="описание поста"
-                />
-                <Mybutton onClick={addNewPost}>создать пост</Mybutton>
-            </form>
+            <PostForm create = {createPost}/>
            <PostList posts={posts} title = "список постов "/>
         </div>
     );
